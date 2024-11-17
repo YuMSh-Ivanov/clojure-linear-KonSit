@@ -38,7 +38,7 @@ public sealed interface Tensor<T extends Number> permits Scalar, Vector {
             return new Scalar<>(rng.get());
         } else {
             final List<Integer> shapeRest = shape.subList(1, shape.size());
-            return new Vector<>(IntStream.range(0, shape.getFirst()).mapToObj(i -> generate(rng, shapeRest)).toList());
+            return new Vector<>(IntStream.range(0, shape.get(0)).mapToObj(i -> generate(rng, shapeRest)).toList());
         }
     }
 }
